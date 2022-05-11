@@ -21,13 +21,15 @@ L'exploration d'un labyrinthe simple va nous permettre de voir comment combiner 
 
 On considère des labyrinthes qui sont des DAG binaires. En voici un exemple, dont l'entrée (la racine du DAG) est étiquetée 0. Dans un premier temps, on ne considère pas de sortie et il va s'agir d'explorer un tel labyrinthe de gauche à droite, en profondeur d'abord, l'idée étant de ne pas revisiter les parties déjà explorées.
 
-    0
-/ \
-1   6
-/ \ / \
-2   3   7
-/ \ / \
-4   5   8
+```
+       0
+      / \
+     1   6
+    / \ / \
+   2   3   7
+  / \ / \
+ 4   5   8
+```
 
 Un labyrinthe est une branche ou une feuille. Une branche est constituée d'un nœud étiqueté par une chaîne de caractères et de deux labyrinthes, à gauche et à droite, d'une étiquette (une chaîne de caractères) et d'un niveau d'exploration : exploré ou pas. Une feuille est constituée d'un simple nœud.
 
