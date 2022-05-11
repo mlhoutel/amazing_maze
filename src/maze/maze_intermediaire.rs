@@ -4,11 +4,10 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 #[derive(PartialEq)]
-// #[derive(Default)]
 pub enum Exploration {
-    // #[default]
-    UnExplored,
-    Explored,
+    UnExplored, // Left remaining | Right remaining
+    PaExplored, // Left explored  | Right remaining
+    Explored,   // Left explored  | Right explored
 }
 
 pub enum Maze {
@@ -29,8 +28,10 @@ impl Maze {
                 trace.push(label.to_string());
 
                 if *status.borrow() == Exploration::UnExplored {
-                    status.replace(Exploration::Explored);
+                    status.replace(Exploration::PaExplored);
                     left.explore_trace(trace);
+                } else if *status.borrow() == Exploration::PaExplored {
+                    status.replace(Exploration::Explored);
                     right.explore_trace(trace);
                 }
             }
