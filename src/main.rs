@@ -16,5 +16,6 @@ fn main() {
     let branch6 = Rc::new(Branch{label: String::from("6"), left: Rc::clone(&branch3), right: Rc::clone(&branch7), status: RefCell::from(Exploration::UnExplored) });
     let branch0 = Rc::new(Branch{label: String::from("0"), left: Rc::clone(&branch1), right: Rc::clone(&branch6), status: RefCell::from(Exploration::UnExplored) });
 
-    println!("{:?}", branch0.explore());
+    //println!("{:?}", branch0.explore());
+    println!("{:?}", branch0.explore_multi());
 }
